@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
     document.getElementById('mySidenav').style.width = '0';
     document.getElementById('main').style.marginLeft = '0';
     this.silde = false;
-    this.http.get('http://localhost:8080/getStudentByRollNo?rollNo=405');
 }
   toggleNav() {
     if (this.silde) {

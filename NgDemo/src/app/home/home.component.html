@@ -1,13 +1,15 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul>
-  <a class="navbar-brand" href="#" (click)="toggleNav()">Logo</a>
+  <a class="navbar-brand" href="javascript:void(0)" (click)="toggleNav()">Logo</a>
   </ul>
 </nav>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
+  <a routerLink="/student">Student</a>
+  <a href="#">Admission</a>
+  <a href="#">Courses</a>
   <a href="#">Contact</a>
 </div>
-<div id="main"></div>
+<div id="main">
+  <router-outlet></router-outlet>
+</div>

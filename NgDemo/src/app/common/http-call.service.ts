@@ -16,9 +16,16 @@ export class HttpCallService {
   };
 
   constructor(private httpService: HttpClient) { }
+  urlPrefix = 'api/'
 
   public get (url: string) {
-    return this.httpService.get<any>(url,this.httpOptions).subscribe(data => {debugger;});
+    const serviceUrl = this.urlPrefix + url;
+    return this.httpService.get(serviceUrl);
+  }
+
+  public post (url: string, object: any) {
+    const serviceUrl = this.urlPrefix + url;
+    return this.httpService.post(serviceUrl, object);
   }
 }
 

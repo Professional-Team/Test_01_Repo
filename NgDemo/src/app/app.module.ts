@@ -5,7 +5,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HttpCallService } from './common/http-call.service';
-import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { StudentDetailComponent } from './student/component/student-detail.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { StudentDetailService } from './student/service/student-detail.service';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -16,10 +19,13 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [
-    HttpCallService
+    HttpCallService,
+    StudentDetailService
   ],
   bootstrap: [AppComponent]
 })

@@ -3,6 +3,7 @@
  */
 package com.example.studentcontroller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +20,30 @@ import com.business.basicstudent.StudentDetail;
  *
  */
 @RestController
+@RequestMapping(value="/api/")
 public class StudentDetailController {
 	@Autowired
 	StudentDetail studentDetail;
 	@RequestMapping(value="/getAllStudentDetail", method = RequestMethod.GET)
 	public List<Student> getAllStudentDetail() {
-		return this.studentDetail.getAllStudentDetail();
+		List<Student> studentList = new ArrayList<>();
+		try {
+			studentList = this.studentDetail.getAllStudentDetail();
+		}  catch(Exception e) {
+			e.printStackTrace();
+		}
+		return studentList;
 	}
 	@RequestMapping(value="/getStudentByRollNo", method = RequestMethod.GET)
 	public Student getStudentByRollNo(@RequestParam(value="rollNo") Long rollNo) {
-		return this.studentDetail.getStudentByRollNo(rollNo);
+		Student student = new Student();
+		try {
+			student = this.studentDetail.getStudentByRollNo(rollNo);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return student;
 	}
 
 }

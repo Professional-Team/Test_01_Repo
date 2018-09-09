@@ -1,0 +1,76 @@
+
+<div class="container">
+    <div class="jumbotron">
+      <h1>Student Details</h1>
+      <div class="d-flex mb-3">
+          <div class="p-2 flex-fill bg-dark">
+              <div class="card bg-light text-dark">
+                  <div class="card-body">
+                      <table class="table table-dark table-striped">
+                          <thead>
+                            <tr>
+                              <th>Id</th>
+                              <th>Name</th>
+                              <th>Gender</th>
+                              <th>Admission Date</th>
+                            </tr>
+                          </thead>
+                          <tbody *ngFor="let student of allStudents">
+                            <tr>
+                              <td>{{student.rollNo}}</td>
+                              <td>{{student.studentName}}</td>
+                              <td>{{student.gender}}</td>
+                              <td>{{student.admissionDate | date:'dd/MM/yyyy'}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div>
+                </div>
+          </div>
+          
+          <div class="p-2 flex-fill bg-dark">
+              <div class="card bg-light text-dark">
+                  <div class="card-body">
+                      <form>
+                          <div class="input-group mb-3">
+                            <input type="number" id="rollno" class="form-control bg-dark text-light" #roll placeholder="Student Id">
+                            <button type="reset" class="btn btn-dark" (click)="getStudentByRollNo(roll)">Search</button>
+                            </div>
+                          <ul class="list-group" [hidden]="!student.rollNo">
+                              <li class="list-group-item">
+                                  <div class="d-flex mb-3">
+                                      <div class="p-2">Id : </div>
+                                      <div class="p-2 "> {{student.rollNo}} </div>
+                                      </div>
+                              </li>
+
+                              <li class="list-group-item">
+                                  <div class="d-flex mb-3">
+                                      <div class="p-2">Name : </div>
+                                      <div class="p-2"> {{student.studentName}} </div>
+                                      </div>
+                              </li>
+
+                              <li class="list-group-item">
+                                  <div class="d-flex mb-3">
+                                      <div class="p-2">Gender : </div>
+                                      <div class="p-2"> {{student.gender}} </div>
+                                      </div>
+                              </li>
+
+                              <li class="list-group-item">
+                                  <div class="d-flex mb-3">
+                                      <div class="p-2">Admission Date : </div>
+                                      <div class="p-2"> {{student.admissionDate | date:'dd/MM/yyyy'}} </div>
+                                      </div>
+                              </li>
+                              
+                            </ul>
+                        </form>
+                  </div>
+                </div>
+          </div>
+        </div>
+  
+  </div>
+</div>
