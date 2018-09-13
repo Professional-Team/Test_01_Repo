@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bean.basicstudent.Student;
-import com.business.basicstudent.StudentDetail;
+import com.business.basicstudent.StudentDetailService;
 
 /**
  * @author Mujahed
@@ -23,7 +23,7 @@ import com.business.basicstudent.StudentDetail;
 @RequestMapping(value="/api/")
 public class StudentDetailController {
 	@Autowired
-	StudentDetail studentDetail;
+	StudentDetailService studentDetail;
 	@RequestMapping(value="/getAllStudentDetail", method = RequestMethod.GET)
 	public List<Student> getAllStudentDetail() {
 		List<Student> studentList = new ArrayList<>();
